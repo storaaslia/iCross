@@ -1,0 +1,50 @@
+use Libraries.Interface.Behaviors.Behavior
+use Libraries.Interface.Events.BehaviorEvent
+use Libraries.Game.Graphics.Drawable
+use Libraries.Game.Graphics.Label
+use Libraries.Interface.Controls.Button
+
+class PlayButtonBehavior is Behavior
+    
+    Drawable bg = undefined
+    Label buttonText = undefined
+    Label byLine = undefined
+    Label title = undefined
+    Button button = undefined
+
+    Drawable townCenter = undefined
+
+    action Run(BehaviorEvent event)
+        if bg not= undefined
+            bg:SetPosition(5000, 5000)
+        end
+        if buttonText not= undefined
+            buttonText:SetPosition(5000, 5000)
+        end
+        if byLine not= undefined
+            byLine:SetPosition(5000, 5000)
+        end
+        if title not= undefined
+            title:SetPosition(5000, 5000)
+        end
+        if button not= undefined
+            button:SetPosition(5000, 5000)
+        end
+
+        if townCenter not= undefined
+            townCenter:SetPosition(0, 0)
+        end
+    end
+
+    action SetStuff(Drawable item1, Label item2, Label item3, Label item4, Button item5)
+        bg = item1
+        buttonText = item2
+        byLine = item3
+        title = item4
+        button = item5
+    end
+
+    action SetNewStuff(Drawable item)
+        townCenter = item
+    end
+end

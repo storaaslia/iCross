@@ -16,9 +16,8 @@ class Main is Game
     Label titleWords
     Label byLine
     Label playButtonText
-    
-//set up event listener for a key press. 
-//with prompt on title sccreen
+    Drawable townCenter
+
     
     action Main
         StartGame() 
@@ -34,6 +33,7 @@ class Main is Game
         byLine:SetColor(color:White())
         byLine:SetPosition(150,0)
         byLine:SetSize(18)
+        townCenter:Load("town center.png")
 
         Button playButton        
         playButton:Initialize(200,100)
@@ -42,9 +42,14 @@ class Main is Game
         playButtonText:SetColor(color:Red())
         playButtonText:SetPosition(335,200)
         playButtonText:SetSize(48)
-        //add mouselistener code on Button
         
-      
+        playButton:Focus()
+        PlayButtonBehavior behavior
+        behavior:SetStuff(bg, playButtonText, byLine, titleWords, playButton)
+        playButton:SetBehavior(behavior)
+        behavior:SetNewStuff(townCenter)
+        Add(townCenter)
+
         Add(bg)
         Add(titleWords)
         Add(byLine)
