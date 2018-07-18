@@ -2,6 +2,12 @@ use Libraries.Game.Game
 use Libraries.Game.Graphics.Drawable
 use Libraries.Game.Graphics.Color
 use Libraries.Game.Graphics.Label
+use Libraries.Interface.Controls.Button
+use Libraries.Interface.Events.KeyboardListener
+use Libraries.Interface.Events.KeyboardEvent
+use Libraries.Interface.Events.MouseListener
+
+
 
 
 class Main is Game
@@ -9,6 +15,8 @@ class Main is Game
     Color color
     Label titleWords
     Label byLine
+    Label playButtonText
+    
 //set up event listener for a key press. 
 //with prompt on title sccreen
     
@@ -22,16 +30,26 @@ class Main is Game
         titleWords:SetColor(color:White())
         titleWords:SetPosition(300,400)
         titleWords:SetSize(72)
-        byLine:SetText("2018 Amanda Steraash, Leanna MacDonald and Donna Clemens")
+        byLine:SetText("2018 Amanda Storaasli,Leanna MacDonald and Donna Clemens")
         byLine:SetColor(color:White())
         byLine:SetPosition(150,0)
         byLine:SetSize(18)
-    // new action with if statement
-     //  action call to TownCenter action
-    
+
+        Button playButton        
+        playButton:Initialize(200,100)
+        playButton:Move(300,150)
+        playButtonText:SetText("Play")
+        playButtonText:SetColor(color:Red())
+        playButtonText:SetPosition(335,200)
+        playButtonText:SetSize(48)
+        //add mouselistener code on Button
+        
+      
         Add(bg)
         Add(titleWords)
         Add(byLine)
+        Add(playButton)
+        Add(playButtonText)
      //   TownCenter() //will go into the event listener
 
     
