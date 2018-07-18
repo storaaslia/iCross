@@ -7,9 +7,6 @@ use Libraries.Interface.Events.KeyboardListener
 use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Interface.Events.MouseListener
 
-
-
-
 class Main is Game
     Drawable bg
     Color color
@@ -17,8 +14,7 @@ class Main is Game
     Label byLine
     Label playButtonText
     Drawable townCenter
-
-    
+       
     action Main
         StartGame() 
     end
@@ -55,17 +51,15 @@ class Main is Game
         Add(byLine)
         Add(playButton)
         Add(playButtonText)
-     //   TownCenter() //will go into the event listener
-
+     
     
  end
 
 action TownCenter()
- // Drawable townCenter
-
- //townCenter:Load("town center.png") 
- 
-  //    Add(townCenter) 
+    Drawable drawable
+    drawable:LoadFilledCircle(75) 
+    Add(drawable)
+//set it off the page during title screen then load after button
 end
 
     action Update(number seconds)
