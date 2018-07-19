@@ -4,6 +4,7 @@ use Libraries.Game.Graphics.Drawable
 use Libraries.Game.Graphics.Label
 use Libraries.Interface.Controls.Button
 
+
 class PlayButtonBehavior is Behavior
     
     Drawable bg = undefined
@@ -11,9 +12,10 @@ class PlayButtonBehavior is Behavior
     Label byLine = undefined
     Label title = undefined
     Button button = undefined
-
-    Drawable townCenter = undefined
-
+    Label tcText1 = undefined
+    Drawable townCenter = undefined    
+    
+    
     action Run(BehaviorEvent event)
         if bg not= undefined
             bg:SetPosition(5000, 5000)
@@ -34,6 +36,8 @@ class PlayButtonBehavior is Behavior
         if townCenter not= undefined
             townCenter:SetPosition(0, 0)
         end
+        
+    
     end
 
     action SetStuff(Drawable item1, Label item2, Label item3, Label item4, Button item5)
@@ -44,7 +48,9 @@ class PlayButtonBehavior is Behavior
         button = item5
     end
 
-    action SetNewStuff(Drawable item)
-        townCenter = item
+    action SetNewStuff(Drawable item1)
+        townCenter = item1
+        
+        
     end
 end
