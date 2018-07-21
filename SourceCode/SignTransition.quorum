@@ -1,0 +1,13 @@
+use Libraries.Interface.Behaviors.Behavior
+use Libraries.Interface.Events.BehaviorEvent
+use Libraries.Game.Graphics.Drawable
+use Libraries.Game.Graphics.Label
+use Libraries.Interface.Controls.Button
+use Libraries.Sound.Audio
+use Libraries.Sound.Speech
+
+class SignTransition 
+    action Main
+        
+    end
+end
