@@ -3,16 +3,28 @@ use Libraries.Game.Graphics.Drawable
 use Libraries.Game.Graphics.Color
 use Libraries.Game.Graphics.Label
 use Libraries.Interface.Controls.Button
+use Libraries.Interface.Events.KeyboardListener
+use Libraries.Interface.Events.KeyboardEvent
+use Libraries.Interface.Events.MouseListener
+use Libraries.System.File
+use Libraries.Sound.Audio
+use Libraries.Sound.Speech
+
 
 class Main is Game
     Drawable bg
     Color color
     Label titleWords
     Label byLine
-    Button button
-//set up event listener for a key press. 
-//with prompt on title sccreen
-    
+    Label playButtonText
+    Drawable townCenter
+    Label tcText
+    Label tcText2
+    Label tcText3
+    Label tcText4
+    Label tcText5
+    Speech tcSay
+         
     action Main
         StartGame() 
     end
@@ -23,27 +35,73 @@ class Main is Game
         titleWords:SetColor(color:White())
         titleWords:SetPosition(300,400)
         titleWords:SetSize(72)
-        byLine:SetText("2018 Amanda Steraash, Leanna MacDonald and Donna Clemens")
+        byLine:SetText("2018 Amanda Storaasli,Leanna MacDonald and Donna Clemens")
         byLine:SetColor(color:White())
         byLine:SetPosition(150,0)
         byLine:SetSize(18)
-    // new action with if statement
-     //  action call to TownCenter action
-    
+        townCenter:Load("town center.png")
+
+        Button playButton        
+        playButton:Initialize(200,100)
+        playButton:Move(300,150)
+        playButtonText:SetText("Play")
+        playButtonText:SetColor(color:Red())
+        playButtonText:SetPosition(335,200)
+        playButtonText:SetSize(48)
+        
+        playButton:Focus()
+        PlayButtonBehavior behavior
+        TownCenter()
+        behavior:SetStuff(bg, playButtonText, byLine, titleWords, playButton)
+        playButton:SetBehavior(behavior)
+        behavior:SetNewStuff(townCenter)
+   
+        Add(townCenter)
+        Add(tcText)
+        Add(tcText2)
+        Add(tcText3)
+        Add(tcText4)
+        Add(tcText5)
+        
+
         Add(bg)
         Add(titleWords)
         Add(byLine)
-     //   TownCenter() //will go into the event listener
+        Add(playButton)
+        Add(playButtonText)
+  
 
-    
  end
 
 action TownCenter()
- // Drawable townCenter
+        integer offset =20
+       
+        tcText:SetText("This is a map of a PLUS shaped")
+        tcText:SetColor(color:White())
+        tcText:SetPosition(5, GetScreenHeight()-offset)
+        tcText:SetSize(18)
+        
+        tcText2:SetText("intersection. Your parallel traffic")
+        tcText2:SetColor(color:White())
+        tcText2:SetPosition(5, GetScreenHeight()-offset*2)
+        tcText2:SetSize(18)
+        
+        tcText3:SetText("is to your right side. You are walking")
+        tcText3:SetColor(color:White())
+        tcText3:SetPosition(5, GetScreenHeight()-offset*3)
+        tcText3:SetSize(18)
 
- //townCenter:Load("town center.png") 
- 
-  //    Add(townCenter) 
+        tcText4:SetText("toward the perpendicular traffic.")
+        tcText4:SetColor(color:White())
+        tcText4:SetPosition(5, GetScreenHeight()-offset*4)
+        tcText4:SetSize(18)
+
+        tcText5:SetText("You come to a sign.")
+        tcText5:SetColor(color:White())
+        tcText5:SetPosition(5, GetScreenHeight()-offset*5)
+        tcText5:SetSize(18)
+
+
 end
 
     action Update(number seconds)
