@@ -6,6 +6,9 @@ use Libraries.Interface.Controls.Button
 use Libraries.Interface.Events.KeyboardListener
 use Libraries.Interface.Events.KeyboardEvent
 use Libraries.Interface.Events.MouseListener
+use Libraries.System.File
+use Libraries.Sound.Audio
+use Libraries.Sound.Speech
 
 
 class Main is Game
@@ -20,6 +23,7 @@ class Main is Game
     Label tcText3
     Label tcText4
     Label tcText5
+    Speech tcSay
          
     action Main
         StartGame() 
@@ -66,6 +70,7 @@ class Main is Game
         Add(playButton)
         Add(playButtonText)
   
+
  end
 
 action TownCenter()
@@ -95,6 +100,8 @@ action TownCenter()
         tcText5:SetColor(color:White())
         tcText5:SetPosition(5, GetScreenHeight()-offset*5)
         tcText5:SetSize(18)
+
+
 end
 
     action Update(number seconds)
