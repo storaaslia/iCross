@@ -2,13 +2,14 @@ use Libraries.Game.Game
 use Libraries.Game.Graphics.Drawable
 use Libraries.Game.Graphics.Color
 use Libraries.Game.Graphics.Label
-
+use Libraries.Interface.Controls.Button
 
 class Main is Game
     Drawable bg
     Color color
     Label titleWords
     Label byLine
+    Button button
 //set up event listener for a key press. 
 //with prompt on title sccreen
     
