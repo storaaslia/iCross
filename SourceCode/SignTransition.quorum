@@ -6,8 +6,71 @@ use Libraries.Interface.Controls.Button
 use Libraries.Sound.Audio
 use Libraries.Sound.Speech
 
-class SignTransition 
-    action Main
-        
+class SignTransition is Behavior
+    Drawable crossSign = undefined
+    Drawable bg2 = undefined
+    Drawable oldBackground = undefined
+
+    Label label1 = undefined
+    Label label2 = undefined
+    Label label3 = undefined
+    Label label4 = undefined
+    Label label5 = undefined
+    Label label6 = undefined
+
+    boolean played = false
+    boolean showing = false
+
+    action Run(BehaviorEvent event) 
+        if played
+            if not showing
+                if bg2 not= undefined and crossSign not= undefined and oldBackground not= undefined
+                    bg2:SetPosition(0, 0)
+                    crossSign:SetPosition(160, 0)
+
+                    oldBackground:SetPosition(1000, 1000)
+                    label1:SetPosition(1000, 1000)
+                    label2:SetPosition(1000, 1000)
+                    label3:SetPosition(1000, 1000)
+                    label4:SetPosition(1000, 1000)
+                    label5:SetPosition(1000, 1000)
+                    label6:SetPosition(1000, 1000)
+
+                    showing = true
+                end
+            else
+                bg2:SetPosition(1000, 1000)
+                crossSign:SetPosition(160, 1000)
+                oldBackground:SetPosition(0, 0)
+//                
+//                integer offset = 20
+
+//                label1:SetPosition(5, 600-offset)
+//                label2:SetPosition(5, 600-offset*2)
+//                label3:SetPosition(5, 600-offset*3)
+//                label4:SetPosition(5, 600-offset*4)
+//                label5:SetPosition(5, 600-offset*5)
+//                label6:SetPosition(5, 600-offset*6)
+            end
+        end
+    end
+
+    action SetItems(Drawable item1, Drawable item2, Drawable item3)
+        bg2 = item1
+        crossSign = item2
+        oldBackground = item3
+    end
+
+    action SetLabels(Label item1, Label item2, Label item3, Label item4, Label item5, Label item6)
+        label1 = item1
+        label2 = item2
+        label3 = item3
+        label4 = item4
+        label5 = item5
+        label6 = item6
+    end
+   
+    action SetPlayed(boolean item)
+        played = item
     end
 end

@@ -5,6 +5,7 @@ use Libraries.Game.Graphics.Label
 use Libraries.Interface.Controls.Button
 use Libraries.Sound.Audio
 use Libraries.Sound.Speech
+use Libraries.Game.GameStateManager
 
 
 class PlayButtonBehavior is Behavior
@@ -17,8 +18,13 @@ class PlayButtonBehavior is Behavior
     Label tcText1 = undefined
     Drawable townCenter = undefined    
     Speech tcSay
-    
+
+    boolean played = false
+        
+
     action Run(BehaviorEvent event)
+        played = true
+
         if bg not= undefined
             bg:SetPosition(5000, 5000)
         end
@@ -41,7 +47,8 @@ class PlayButtonBehavior is Behavior
         
      tcSay:Say("This is a map of a PLUS shaped intersection."
 + " Your parallel traffic is to your left side. You are walking" 
-+ " toward the perpendicular traffic. You come to a sign on a pole to your right.")  
++ " toward the perpendicular traffic. You come to a sign on a pole" 
++ " to your right. Press Enter to see the sign.")  
   
     
        Audio traffic
@@ -59,7 +66,9 @@ class PlayButtonBehavior is Behavior
 
     action SetNewStuff(Drawable item1)
         townCenter = item1
-        
-        
+    end
+
+    action GetPlayed returns boolean
+        return played
     end
 end
