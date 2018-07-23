@@ -148,6 +148,6 @@ action TownCenter()
 end
 
     action Update(number seconds)
-
+        signTransition:SetPlayed(behavior:GetPlayed())
     end
 end
